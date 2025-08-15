@@ -1,6 +1,6 @@
 <?php
 
-class Attributen
+class Fahrzeugen
 {
     public $Räder;
     public $Ausenspiegel;
@@ -9,11 +9,11 @@ class Attributen
 
     public $Geschwendigkeit;
 
-    public $Transport;
+    public $Fahrzeug;
 
-    public function __construct($Transport, $Räder, $Ausenspiegel, $Motor, $Pedale, $Geschwendigkeit)
+    public function __construct($Fahrzeug, $Räder, $Ausenspiegel, $Motor, $Pedale, $Geschwendigkeit)
     {
-        $this->Transport = $Transport;
+        $this->Fahrzeug = $Fahrzeug;
         $this->Räder = $Räder;
         $this->Ausenspiegel = $Ausenspiegel;
         $this->Motor = $Motor;
@@ -24,19 +24,19 @@ class Attributen
 
 }
 
-$auto = new Attributen('Auto', 4, 2, true, true, '100-350 km/h');
-$motorad = new Attributen('Motorrad', 2, 2, true, true, '10-250 km/h');
-$fahhrad = new Attributen('Fahhrad', rand(2, 4), 2, false, true, '10-35 km/h');
-$ebike = new Attributen('Ebike', 2, 2, true, true, '20-40 km/h');
+$auto = new Fahrzeugen('Auto', 4, 2, true, true, '100-350 km/h');
+$motorad = new Fahrzeugen('Motorrad', 2, 2, true, true, '10-250 km/h');
+$fahhrad = new Fahrzeugen('Fahhrad', rand(2, 4), 2, false, true, '10-35 km/h');
+$ebike = new Fahrzeugen('Ebike', 2, 2, true, true, '20-40 km/h');
 
-$transport = [$auto, $motorad, $fahhrad, $ebike,];
+$fahrzeug = [$auto, $motorad, $fahhrad, $ebike];
 
-foreach ($transport as $key) {
-    echo $key->Transport . "<br>";
-    echo 'Räder: ', $key->Räder, "<br>";
-    echo 'Ausenspiegel: ', $key->Ausenspiegel . " " . "<br>";
-    echo 'Motor: ', $key->Motor ? 'hat' : 'keiner', "  ", "<br>";
-    echo 'Geschwendigkeit: ', $key->Geschwendigkeit, "<br>";
-    echo 'Pedale: ', $key->Pedale ? 'hat' : 'keine', "<br>" . "<br>";
+foreach ($fahrzeug as $key => $fahrzeugen) {
+    echo  $fahrzeugen->Fahrzeug . "<br>";
+    echo 'Räder: ', $fahrzeugen->Räder, "<br>";
+    echo 'Ausenspiegel: ', $fahrzeugen->Ausenspiegel . " " , "<br>";
+    echo 'Motor: ', $fahrzeugen->Motor ? 'hat' : 'keiner', "  ", "<br>";
+    echo 'Geschwendigkeit: ', $fahrzeugen->Geschwendigkeit, "<br>";
+    echo 'Pedale: ', $fahrzeugen->Pedale ? 'hat' : 'keine', "<br>" . "<br>";
 }
 ?>
